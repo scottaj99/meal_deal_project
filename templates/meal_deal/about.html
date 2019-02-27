@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load staticfiles %} <!-- New line -->
+<html>
+	<head> 
+		<title>Rate My Meal Deal</title> 
+	</head>
+	<body> 
+		<h1>Rate My Meal Deal</h1>
+		<div>
+			About! <br />
+			<strong>{{ boldmessage }}</strong><br /> 
+		</div> 
+		<div> 
+			<a href="/meal_deal/">Index</a><br />
+			<img src="{% static "images/meal_deal.jpg" %}" 
+			alt="Picture of a meal deal" /> <!-- New line -->
+			<img src="{{MEDIA_URL}}meal_deal.jpg" /> 
+		</div> 
+	</body>
+</html>
