@@ -4,12 +4,25 @@
 	<head> 
 		<title>Rate My Meal Deal</title> 
 	</head>
+	
 	<body> 
 		<h1>Rate My Meal Deal</h1>
-		<div>
-			Welcome! <br />
-			<strong>{{ boldmessage }}</strong><br /> 
-		</div> 
+		<div>Welcome!</div> 
+		<div> 
+		{% if categories %} 
+		<ul> 
+			{% for category in categories %}
+				<li>
+				<a href="/meal_deal/category/{{ category.slug }}">{{ category.name }}</a>
+				</li> 
+			{% endfor %} 
+		</ul> 
+		{% else %} 
+			<strong>There are no categories present.</strong> 
+		{% endif %} 
+		</div>
+		
+		
 		<div> 
 			<a href="/meal_deal/about/">About</a><br />
 			<img src="{% static "images/meal_deal.jpg" %}" 
