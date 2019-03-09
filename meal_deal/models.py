@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
@@ -22,4 +23,15 @@ class Meal_Deal(models.Model):
     def __str__(self): # For Python 2, use __unicode__ too
         return self.title
 
-# Create your models here.
+# User profiles additional information
+
+class UserProfile(models.Model):
+    # Required line to link UserProfile to a User model instance
+    user = models.OneToOneField(User)
+
+    # Additional attributes (can add extras)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+
+    #Override the __unicode__() method to return out something meaningful
+    def __str__(self):
+        return self.user.username
