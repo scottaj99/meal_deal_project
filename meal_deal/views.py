@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from meal_deal.models import Category
 from meal_deal.models import Meal_Deal
+from meal_deal.forms import CategoryForm
+
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
     context_dict = {'categories': category_list}
@@ -22,3 +24,15 @@ def show_category(request, category_name_slug):
         context_dict['category'] = None
         context_dict['pages'] = None
     return render(request, 'meal_deal/category.html', context_dict)
+
+def add_category(request):
+    form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print (form.errors)
+    return render(request, 'meal_deal/add_category.html', {'form': form})
+    
