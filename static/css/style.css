@@ -1,0 +1,38 @@
+body {
+	background-color: #e5e5e5;
+}
+
+div {
+	border-radius: 25px;
+	font-family: 'Segoe UI Light';
+	background-color: #f2f2f2;
+	
+}
+
+/* Add a white-grey background color to the top navigation */
+.tab {
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.tab a {
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+	color: black;
+}
+
+/* Change the color of links on hover */
+.tab a:hover {
+    background-color: #ddd;
+    color: #85FFE2;
+}
+
+/* Add a color to the active/current link */
+.tab a.active {
+    background-color: #85FFE2;
+    color: black;
+}

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-{% load staticfiles %} <!-- New line -->
-<html>
-	<head> 
-		<title>Rate My Meal Deal</title> 
-	</head>
+{% extends 'meal_deal/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	Index
+{% endblock %}
 	
-	<body> 
+{% block body_block %}
 		<h1>Rate My Meal Deal</h1>
 		<div>Welcome!</div> 
 		<div>
@@ -30,5 +30,4 @@
 			<img src="{% static "images/meal_deal.jpg" %}" 
 			alt="Picture of a meal deal" /> <!-- New line -->
 		</div> 
-	</body>
-</html>
+{% endblock %}

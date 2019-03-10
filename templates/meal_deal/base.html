@@ -4,14 +4,21 @@
 <html>
 	<head lang="en">
 		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href={% static "css/style.css" %} />
 		<title>
-		Rate my Meal Deal!
+		RateMyMealDeal -
 		{% block title_block %}
 			The best meals for the best deals 
 		{% endblock %}
 		</title>
 	</head>
 	<body>
+		<div class="tab">
+			<a href="{% url 'index' %}">Home</a>
+			<a href="{% url 'about' %}">About</a>
+			<a href="{% url 'add_category' %}">Add New Category</a>
+			<a href="{% url 'register' %}">Sign Up</a>
+		</div>
 		<div>
 			{% block body_block %}
 			{% endblock %}
