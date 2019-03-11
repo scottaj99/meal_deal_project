@@ -18,8 +18,12 @@ class Category(models.Model):
 class Meal_Deal(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
+    slug = models.SlugField(unique=True)
     #url = models.URLField()
     views = models.IntegerField(default=0)
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Meal_Deal, self).save(*args, **kwargs)
     def __str__(self): # For Python 2, use __unicode__ too
         return self.title
 
@@ -30,7 +34,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
 
     # Additional attributes (can add extras)
-    picture = models.ImageField(upload_to='profile_images', blank=True)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+
 
     #Override the __unicode__() method to return out something meaningful
     def __str__(self):

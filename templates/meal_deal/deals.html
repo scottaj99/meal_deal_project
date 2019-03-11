@@ -1,0 +1,14 @@
+{% extends 'meal_deal/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	{{ meal_deal.title }}
+{% endblock %}
+
+{% block body_block %}  
+	{% if meal_deal %} 
+		<h1>{{ meal_deal.title }}</h1> 
+	{% else %} 
+		The specified meal deal does not exist! 
+	{% endif %} 
+{% endblock %}

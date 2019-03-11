@@ -9,7 +9,8 @@ urlpatterns = [
     url(r'^add_category/$', views.add_category, name='add_category'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/$',
         views.show_category, name='show_category'),
-
+    url(r'^deals/(?P<meal_deal_slug>[\w\-]+)/$',
+        views.show_meal_deal, name='show_meal_deal'),
     url(r'^register/$',
         views.register,
         name='register'),

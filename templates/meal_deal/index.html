@@ -22,6 +22,20 @@
 			<strong>There are no categories present.</strong> 
 		{% endif %} 
 		</div>
+		<div>
+		<h2>Most Viewed Meal Deals</h2>
+		{% if meal_deals %} 
+		<ul> 
+			{% for meal_deal in meal_deals %}
+				<li>
+				<a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a>
+				</li>  
+			{% endfor %} 
+		</ul> 
+		{% else %} 
+			<strong>There are no meal deals present.</strong> 
+		{% endif %} 
+		</div>
 		
 		
 		<div>
