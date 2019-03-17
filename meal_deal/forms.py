@@ -16,10 +16,10 @@ class CategoryForm(forms.ModelForm):
 class MealDealForm(forms.ModelForm):
     title = forms.CharField(max_length=128,
                             help_text="Please enter the title of the page.")
-    views = views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-
+    views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     class Meta:
         model = Meal_Deal
+        #fields = ('title',)
         exclude = ('category',)
 
 # User Authentication 

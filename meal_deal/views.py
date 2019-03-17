@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from meal_deal.models import Category
 from meal_deal.models import Meal_Deal
 from meal_deal.forms import CategoryForm
+from meal_deal.forms import MealDealForm
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
@@ -48,6 +49,52 @@ def add_category(request):
         else:
             print (form.errors)
     return render(request, 'meal_deal/add_category.html', {'form': form})
+
+def add_deal(request, category_name_slug):
+
+    try:
+
+        category = Category.objects.get(slug=category_name_slug)
+
+    except Category.DoesNotExist:
+
+        category = None
+
+
+
+    form = MealDealForm()
+
+    if request.method == 'POST':
+
+        form = MealDealForm(request.POST)
+
+        if form.is_valid():
+
+            if category:
+
+                deal = form.save(commit=False)
+
+                deal.category = category
+
+                deal.views = 0
+
+                deal.save()
+
+                # probably better to use a redirect here.
+
+            return show_category(request, category_name_slug)
+
+        else:
+
+            print(form.errors)
+
+
+
+    context_dict = {'form':form, 'category': category}
+
+
+
+    return render(request, 'rango/add_deal.html', context_dict)
 
 def register(request):
     registered=False
