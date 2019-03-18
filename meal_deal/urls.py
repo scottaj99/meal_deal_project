@@ -2,6 +2,7 @@ from django.conf.urls import url
 from meal_deal import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import include
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -14,8 +15,8 @@ urlpatterns = [
         views.show_category, name='show_category'),
     url(r'^deals/(?P<meal_deal_slug>[\w\-]+)/$',
         views.show_meal_deal, name='show_meal_deal'),
-    url(r'^register/$',
-        views.register,
-        name='register'),
+
+
+
 ] 
 

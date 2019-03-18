@@ -4,6 +4,16 @@ from meal_deal.models import Category
 from meal_deal.models import Meal_Deal
 from meal_deal.forms import CategoryForm
 from meal_deal.forms import MealDealForm
+from meal_deal.forms import UserForm, UserProfileForm
+
+
+#Imports for logging in/out
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
@@ -96,33 +106,4 @@ def add_deal(request, category_name_slug):
 
     return render(request, 'rango/add_deal.html', context_dict)
 
-def register(request):
-    registered=False
-    if request.method == 'POST':
-        user_form=UserForm(data=request.POST)
-        profile_form = UserProfileForm(data=request.POST)
 
-        if user_form.is_valid() and profile_form.is_valid():
-            user=user_form.save()
-            user.set_password(user.password)
-            user.save()
-            profile=profile_form.save(commit=False)
-            profile.user = user
-
-            if 'picture' in request.FILES:
-                profile.picture= request.FILES['picture']
-
-            profile.save()
-
-            registered= True
-        else:
-            print(user_form.errors, profile_form.errors)
-    else:
-        user_form=UserForm()
-        profile_form=UserProfileForm()
-    return render(request,
-                    'meal_deal/register.html',
-                    {'user_form': user_form,
-                    'profile_form': profile_form,
-                    'registered': registered})
-    

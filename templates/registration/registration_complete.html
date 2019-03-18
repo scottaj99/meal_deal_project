@@ -1,0 +1,7 @@
+{% extends "meal_deal/base.html" %}
+{% block body_block %}
+	<h1>Thanks for signing up {{ user.username }}</h1>
+	<p>Looks like you can type a password two times correctly, good job!</p>
+	<li><a href="{% url 'index' %}">Click here to go back to the homepage!</a></li>
+{% endblock %}
+
