@@ -1,5 +1,5 @@
 $(document).ready( function() {
-
+	
 	$("p").hover( function() {
 		$(this).css('color', 'red');
 	},
@@ -9,8 +9,14 @@ $(document).ready( function() {
 	});
 
 	$("#dialog").dialog({
+		width: 350,
+		height: 250,
 		autoOpen: false,
-		open: function(event, ui) { jQuery('.ui-dialog-titlebar-close').hide(); },
+		open: function(event, ui) { 
+			jQuery('.ui-dialog-titlebar-close').hide(); 
+			jQuery('#myComment').val('');
+			jQuery('#myRating').val('');
+		},
 		show: {
 			effect: "explode",
 			duration: 1000
@@ -26,11 +32,11 @@ $(document).ready( function() {
 	});
 
 	$('.formSaver').on('click', function() {
-		$('.myTarget').text($('.myInput').val());
+		$('.myTarget').text($('.myComment').val());
 		$("#dialog").dialog('close');
 	});
 	
-	$( "#spinner" ).spinner({min:0, max:5});
+	$( "#myRating" ).spinner({min:0, max:5});
 	
 	
 });
