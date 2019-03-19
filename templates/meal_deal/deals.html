@@ -7,8 +7,24 @@
 
 {% block body_block %}  
 	{% if meal_deal %} 
-		<h1>{{ meal_deal.title }}</h1> 
+		<h1>{{ meal_deal.title }}</h1>
+		<h2>{{meal_deal.description}}</h2>
+		{{meal_deal.picture}}
+			<img src={{meal_deal.picture}} alt="Meal Deal">
 	{% else %} 
 		The specified meal deal does not exist! 
-	{% endif %} 
+	{% endif %}
+		<div id="dialog">
+			<b><u><center>Rate this Meal Deal</center></b></u>
+		
+			<p>&nbsp; Rating
+			<br>&nbsp; <input id="myRating" size="1" ></p>
+		
+			<p>&nbsp; Comment
+			<br>&nbsp; <input id="myComment" type="text" size="40"> </p>
+		
+			<p>&nbsp; <button class="formSaver">Post review</button> </p>
+		</div>
+
+		<button id="opener">Rate this Meal Deal</button>	
 {% endblock %}

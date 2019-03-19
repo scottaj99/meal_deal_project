@@ -18,6 +18,8 @@ class Category(models.Model):
 class Meal_Deal(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
+    description = models.CharField(max_length=250)
+    picture = models.ImageField(upload_to='uploads', blank=True)
     slug = models.SlugField(unique=True)
     #url = models.URLField()
     views = models.IntegerField(default=0)

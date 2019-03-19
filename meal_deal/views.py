@@ -85,8 +85,11 @@ def add_deal(request, category_name_slug):
                 deal = form.save(commit=False)
 
                 deal.category = category
+                #deal.description = description
 
                 deal.views = 0
+                if 'picture' in request.FILES:
+                    deal.picture=request.FILES['picture']
 
                 deal.save()
 
@@ -104,6 +107,6 @@ def add_deal(request, category_name_slug):
 
 
 
-    return render(request, 'rango/add_deal.html', context_dict)
+    return render(request, 'meal_deal/add_deal.html', context_dict)
 
 
