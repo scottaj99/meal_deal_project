@@ -10,19 +10,19 @@ NEW_DIR = MEDIA_DIR + "/uploads/"
 NEW_DIR = NEW_DIR.replace("\\", "/")
 def populate():
     vegetarian_pages = [
-        {"title": "Scott's Meal Deal", "description": "test", "picture": NEW_DIR + "Scott.jpg"},
-        {"title": "Stewart's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Stewart.jpg"},
-        {"title": "Jacob's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Jacob.jpg"}
+        {"title": "Scott's Meal Deal", "description": "ham and cheese sandwich, orange tropicana and ready salted crisps", "picture": NEW_DIR + "Scott.jpg"},
+        {"title": "Stewart's Meal Deal","description": "chicken bacon and stuffing crisps, salt and vinegar kettle chips and a diet coke", "picture":NEW_DIR+"Stewart.jpg"},
+        {"title": "Jacob's Meal Deal","description": "chicken avocado and bacon sandwich, sunbites and some tropical juice", "picture":NEW_DIR+"Jacob.jpg"}
         ]
     other_pages = [
-        {"title": "Erce's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Erce.jpg"},
-        {"title": "Luke's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Luke.jpg"},
-        {"title": "Paolo's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Paolo.jpg"}
+        {"title": "Erce's Meal Deal","description": "Sausage, bacon and egg triple sandwich, apple juice and sweet chilly sensations", "picture":NEW_DIR+"Erce.jpg"},
+        {"title": "Luke's Meal Deal","description": "Chicken+bacon pasta, apple juice, salt and vinegar crips", "picture":NEW_DIR+"Luke.jpg"},
+        {"title": "Paolo's Meal Deal","description": "tomato chicek and chorizo pasta with a lucosade and a packet of flame grilled steak mccoys", "picture":NEW_DIR+"Paolo.jpg"}
         ]
     meaty_pages = [
-        {"title": "Beth's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Beth.jpg"},
-        {"title": "Joseph's Meal Deal","description": "test", "picture":"meal_deal_project/media/uploads/Joseph.jpg"},
-        {"title": "Andrew's Meal Deal", "description": "test", "picture":"meal_deal_project/media/uploads/Andrew.jpg"}
+        {"title": "Beth's Meal Deal","description": "Sausage bacon and egg sandwich, a galaxy bar and an innocent bubbles lemon and lime juice", "picture":NEW_DIR+"Beth.jpg"},
+        {"title": "Joseph's Meal Deal","description": "Fanta orange, flame grilled steak mccoys and a prawn mayo sandwich", "picture":NEW_DIR+"Joseph.jpg"},
+        {"title": "Andrew's Meal Deal", "description": "Prawn, mango and chilli wrap, apple+grape bag and a diet coke", "picture":NEW_DIR+"Andrew.jpg"}
         ]
 
     cats = {"Vegetarian": {"meals": vegetarian_pages},
