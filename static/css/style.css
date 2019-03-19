@@ -6,8 +6,13 @@ div {
 	border-radius: 25px;
 	font-family: 'Segoe UI Light';
 	background-color: #f2f2f2;
-	
 }
+
+.ui-widget-content.ui-dialog
+{
+   border: 10px solid #DDD;
+}
+
 
 /* Add a white-grey background color to the top navigation */
 .tab {

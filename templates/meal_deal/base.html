@@ -26,11 +26,11 @@
 			<a href="{% url 'about' %}">About</a>
 			<a href="{% url 'add_category' %}">Add New Category</a>
 			{% if user.is_authenticated %}
-				<li><a href="{% url 'auth_logout' %}?next=/meal_deal/">Logout</a></li>
+				<a href="{% url 'auth_logout' %}?next=/meal_deal/">Logout</a>
 				Signed in as: {{ user.username}}
 			{% else %}
-				<li><a href="{% url 'auth_login' %}">Log in</a></li>
-				<li><a href="{% url 'registration_register' %}">Register</a></li>
+				<a href="{% url 'auth_login' %}">Log in</a>
+				<a href="{% url 'registration_register' %}">Register</a>
 			{% endif %}
 		</div>
 		<div>

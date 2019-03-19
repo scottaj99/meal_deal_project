@@ -7,10 +7,37 @@ $(document).ready( function() {
 	function() {
 		$(this).css('color', 'blue');
 	});
+	
+	
+	//Welcome dialog stuff
+	
+	$("#welcome").dialog({
+		width: 400,
+		height: 350,
+		autoOpen: true,
+		open: function(event, ui) { 
+			jQuery('.ui-dialog-titlebar-close').hide();
+		},
+		show: {
+			effect: "blind",
+			duration: 1000
+		},
+		hide: {
+			effect: "blind",
+			duration: 1000
+		}
+	});
+	
+	$('.continueBtn').on('click', function() {
+		$("#welcome").dialog('close');
+	}).css({ width: '300px', 'padding-top': '10px', 'padding-bottom': '10px' });
 
+	
+	//Post review dialog stuff
+	
 	$("#dialog").dialog({
 		width: 350,
-		height: 250,
+		height: 300,
 		autoOpen: false,
 		open: function(event, ui) { 
 			jQuery('.ui-dialog-titlebar-close').hide(); 
@@ -29,14 +56,18 @@ $(document).ready( function() {
 
 	$("#opener").click(function() {
 		$("#dialog").dialog("open");
-	});
+	}).css({ width: '300px', 'padding-top': '10px', 'padding-bottom': '10px' });
 
 	$('.formSaver').on('click', function() {
 		$('.myTarget').text($('.myComment').val());
 		$("#dialog").dialog('close');
-	});
+	}).css({ width: '230px', 'padding-top': '10px', 'padding-bottom': '10px' });
 	
 	$( "#myRating" ).spinner({min:0, max:5});
+	
+	$('.closeBtn').on('click', function() {
+		$("#dialog").dialog('close');
+	}).css({width: '70px', 'padding-top': '10px', 'padding-bottom': '10px' });
 	
 	
 });
