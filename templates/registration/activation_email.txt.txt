@@ -1,0 +1,14 @@
+Hello there! 
+
+Your Meal Dealing Dream starts here!
+Click the link below to actviate your account:
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+
+This link is valid for {{expiration_days}} days. 
+
+If you did not try sign up for the Meal Deal site, please ignore this email. 
+
+Cheers!
+
+- Meal Deal team

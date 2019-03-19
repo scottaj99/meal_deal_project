@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from meal_deal.models import Category
 from meal_deal.models import Meal_Deal
+from meal_deal.models import UserProfile
 from meal_deal.forms import CategoryForm
 from meal_deal.forms import MealDealForm
 from meal_deal.forms import UserForm, UserProfileForm
@@ -13,7 +14,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-
+from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 def index(request):
     category_list = Category.objects.order_by('-likes')[:5]
@@ -48,6 +50,49 @@ def show_meal_deal(request, meal_deal_slug):
         #context_dict['category'] = None
         context_dict['meal_deal'] = None
     return render(request, 'meal_deal/deals.html', context_dict)
+
+@login_required
+def register_profile(request):
+    form = UserProfileForm()
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
+            
+            return redirect('index')
+        else:
+            print(form.errors)
+
+    context_dict = {'form':form}
+
+    return render(request, 'meal_deal/profile_registration.html', context_dict)
+
+# Each profile
+@login_required
+def profile(request, username):
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return redirect('index')
+
+    userprofile = UserProfile.objects.get_or_create(user=user)[0]
+    form = UserProfileForm(
+        {'picture': userprofile.picture})
+
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
+    if form.is_valid():
+        form.save(commit=True)
+        return redirect('profile', user.username)
+    else:
+        print(form.errors)
+    return render(request, 'meal_deal/profile.html',
+        {'userprofile': userprofile, 'selecteduser': user, 'form': form})
+
+
 
 def add_category(request):
     form = CategoryForm()

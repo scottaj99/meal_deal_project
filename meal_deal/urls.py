@@ -15,6 +15,10 @@ urlpatterns = [
         views.show_category, name='show_category'),
     url(r'^deals/(?P<meal_deal_slug>[\w\-]+)/$',
         views.show_meal_deal, name='show_meal_deal'),
+    url(r'^register_profile/$',
+        views.register_profile, name='register_profile'),
+    url(r'^profile/(?P<username>[\w\-]+)/$',
+        views.profile, name='profile'),
 
 
 

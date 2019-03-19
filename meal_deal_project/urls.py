@@ -19,6 +19,7 @@ from django.conf.urls import include
 from meal_deal import views
 from django.conf import settings
 from django.conf.urls.static import static
+from registration.backends.simple.views import RegistrationView
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -27,3 +28,7 @@ urlpatterns = [
     url(r'^accounts/',
         include('registration.backends.simple.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+class MyRegistrationView(RegistrationView):
+    def get_success_url(self, user):
+        return reverse('register_profile')
