@@ -6,6 +6,7 @@ from meal_deal.models import UserProfile
 from meal_deal.forms import CategoryForm
 from meal_deal.forms import MealDealForm
 from meal_deal.forms import UserForm, UserProfileForm
+from django.template import RequestContext
 
 
 #Imports for logging in/out
@@ -108,52 +109,21 @@ def add_category(request):
     return render(request, 'meal_deal/add_category.html', {'form': form})
 
 def add_deal(request, category_name_slug):
-
     try:
-
         category = Category.objects.get(slug=category_name_slug)
-
     except Category.DoesNotExist:
-
         category = None
-
-
-
     form = MealDealForm()
-
     if request.method == 'POST':
-
         form = MealDealForm(request.POST)
-
         if form.is_valid():
-
             if category:
-
-                deal = form.save(commit=False)
-
-                deal.category = category
-                #deal.description = description
-
-                deal.views = 0
-                if 'picture' in request.FILES:
-                    deal.picture=request.FILES['picture']
-
-                deal.save()
-
-                # probably better to use a redirect here.
-
-            return show_category(request, category_name_slug)
-
+                page = form.save(commit=False)
+                page.category=category
+                page.views = 0
+                page.save()
+                return show_category(request, category_name_slug)
         else:
-
             print(form.errors)
-
-
-
     context_dict = {'form':form, 'category': category}
-
-
-
     return render(request, 'meal_deal/add_deal.html', context_dict)
-
-

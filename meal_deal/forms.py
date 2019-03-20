@@ -22,7 +22,7 @@ class MealDealForm(forms.ModelForm):
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
         model = Meal_Deal
-        fields = ('picture',)
+        #fields = ('picture',)
         exclude = ('category',)
 
 # User Authentication 

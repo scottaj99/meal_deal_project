@@ -2,68 +2,29 @@
 {% load staticfiles %}
 
 {% block title_block %}
-	Add Meal Deal
+    Add a meal deal
 {% endblock %}
 
+{% block body_block %}
 
-	{% block body_block %}
+		<h1>Add a meal deal</h1>
 
-        <div>
-
+		<div>
 		{% if category %}
-
-		
-
-        <h1>Add a Meal Deal to {{category.name}}</h1>
-
-
-
-        <form id="page_form" method="post" action="/meal_deal/category/{{ category.slug }}/add_deal/">
-
-
-
-            {% csrf_token %}
-
-            {% for hidden in form.hidden_fields %}
-
-                {{ hidden }}
-
-            {% endfor %}
-
-
-
-            {% for field in form.visible_fields %}
-
-                {{ field.errors }}
-
-                {{ field.help_text }}
-
-                {{ field }}
-
-            {% endfor %}
-
-
-
-            <input type="submit" name="submit" value="Add Deal" />
-
-        </form>
-
-		
-
+        		<form id="page_form" method="post" action="/meal_deal/category/{{ category.slug }}/add_deal/">
+				{% csrf_token %}
+						{% for hidden in form.hidden_fields %} 
+						{{ hidden }} 
+				{% endfor %} 
+						{% for field in form.visible_fields %} 
+							{{ field.errors }} 
+						{{ field.help_text }} 
+						{{ field }} 
+				{% endfor %} 
+				<input type="submit" name="submit" value="Add Meal Deal" />
+			</form>
 		{% else %}
-
-			The specified category does not exist!
-
-		{% endif%}
-
-		  
-
-		  
-
-		  
-
-		</div>	
-
-      
-
-	{% endblock %}
+			A category by this name does not exist
+		{% endif %}
+		</div>
+{% endblock %}
