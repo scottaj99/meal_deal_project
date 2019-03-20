@@ -1,11 +1,11 @@
 {% extends "meal_deal/base.html" %}
 	{% block title_block %}
-		Registration - Step 2
+		Add profile picture
 	{% endblock %}
 
 {% block body_block %}
-	<h1>Add a profile picture?</h1>
-	<p> You dont have to, but you can't hide your ugly meal deals behind being anonymous</p>
+	<h1>Add a profile picture</h1>
+	<p> Can't hide from you horrible choice of meal deals now</p>
 	<form method="post" action="." enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}

@@ -70,6 +70,7 @@ def register_profile(request):
 
     return render(request, 'meal_deal/profile_registration.html', context_dict)
 
+
 # Each profile
 @login_required
 def profile(request, username):
@@ -84,11 +85,12 @@ def profile(request, username):
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
-    if form.is_valid():
-        form.save(commit=True)
-        return redirect('profile', user.username)
-    else:
-        print(form.errors)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('profile', user.username)
+        else:
+            print(form.errors)
+        
     return render(request, 'meal_deal/profile.html',
         {'userprofile': userprofile, 'selecteduser': user, 'form': form})
 

@@ -11,5 +11,3 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Meal_Deal, MealDealAdmin)
 
 
-
-# Register your models here.

@@ -3,5 +3,8 @@
 	<h1>Thanks for signing up {{ user.username }}</h1>
 	<p>Looks like you can type a password two times correctly, good job!</p>
 	<li><a href="{% url 'index' %}">Click here to go back to the homepage!</a></li>
+	<br/><br/>
+	<p>Want to add a profile picture? Click below!</p>
+	<li><a href=" {% url 'register_profile' %}">Add optional profile picture now</a></li>
 {% endblock %}
 

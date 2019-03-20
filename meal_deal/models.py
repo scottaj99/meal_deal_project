@@ -19,7 +19,7 @@ class Meal_Deal(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=1000)
-    picture = models.ImageField(upload_to='uploads', blank=True)
+    picture = models.ImageField(upload_to='uploads', null=True)
     slug = models.SlugField(unique=True)
     #url = models.URLField()
     views = models.IntegerField(default=0)
@@ -36,7 +36,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
 
     # Additional attributes (can add extras)
-    picture = models.ImageField(upload_to='profile_images', blank=True)
+    picture = models.ImageField(upload_to='profile_images', null=True)
 
 
     #Override the __unicode__() method to return out something meaningful
