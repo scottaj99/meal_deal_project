@@ -6,30 +6,36 @@
 {% endblock %}
 	
 {% block body_block %}
-		<h1>Rate My Meal Deal</h1>
-		<div>Welcome!</div> 
+
 		<div>
+		<br>
+		<div class="logo">
+		<h1>Rate My Meal Deal</h1>
+		Welcome to the best<br>
+		place to get roasted!
+		</div>
+		
+		<div class="column-l">
 		<h2>Most Liked Categories</h2>
+		<hr>
 		{% if categories %} 
 		<ul> 
 			{% for category in categories %}
-				<li>
-				<a href="/meal_deal/category/{{ category.slug }}">{{ category.name }}</a>
-				</li> 
+				<li><a href="/meal_deal/category/{{ category.slug }}">{{ category.name }}</a></li> <p>
 			{% endfor %} 
 		</ul> 
 		{% else %} 
 			<strong>There are no categories present.</strong> 
 		{% endif %} 
 		</div>
-		<div>
-		<h2>Most Viewed Meal Deals</h2>
+		
+		<div class="column-r">
+		<h2>Blessed Meal Deals</h2>
+		<hr>
 		{% if meal_deals %} 
 		<ul> 
 			{% for meal_deal in meal_deals %}
-				<li>
-				<a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a>
-				</li>  
+				<li><a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a></li> <p>
 			{% endfor %} 
 		</ul> 
 		{% else %} 
@@ -37,14 +43,13 @@
 		{% endif %} 
 		</div>
 		
-		
-		<div>
+		<div class="clear-float">
 			<a href="/meal_deal/add_category/">Add a New Category</a><br />
 			<a href="/meal_deal/about/">About</a><br />
 			<img src="{% static "images/meal_deal.jpg" %}" 
 			alt="Picture of a meal deal" /> <!-- New line -->
 		</div> 
-		
+		</div>
 		
 		<!-- JQuery stuff below -->
 		

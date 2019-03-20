@@ -6,6 +6,84 @@ div {
 	border-radius: 25px;
 	font-family: 'Segoe UI Light';
 	background-color: #f2f2f2;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.container {
+	margin-top:5%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.category {
+	height: 600px;
+}
+
+.logo {
+	background-color: #85FFE2;
+	text-align: center;
+	margin-left:25%;
+	margin-right:25%;
+	padding-bottom:5px;
+}	
+
+.column-l {
+	background-color: #ffffff;
+	float: left;
+	width: 30%;
+	text-align:center;
+	margin-left: 10%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.column-r {
+	background-color: #ffffff;
+	float: right;
+	width: 30%;
+	text-align:center;
+	margin-right: 10%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.clear-float{
+	clear: left;
+}
+	
+.column-l a {
+	background-color: #e5e5e5;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 25px;
+}
+
+.column-l a:hover {
+	background-color: #85FFE2;
+	border-radius: 25px;
+	color: black;
+}
+
+.column-r a {
+	background-color: #e5e5e5;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 25px;
+}
+
+.column-r a:hover {
+	background-color: #85FFE2;
+	border-radius: 25px;
+	color: black;
 }
 
 .ui-widget-content.ui-dialog

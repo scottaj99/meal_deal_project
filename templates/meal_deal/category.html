@@ -5,10 +5,9 @@
 	{{ category.name }}
 {% endblock %}
 
-{% block body_block %}  
+{% block body_block %} 
 	{% if category %} 
 		<h1>{{ category.name }}</h1> 
-		
 		{% if meal_deals %} 
 			<ul> 
 			{% for meal_deal in meal_deals %} 
@@ -19,7 +18,7 @@
 			</ul> 
 		{% else %} 
 			<strong>No pages currently in category.</strong> 
-		{% endif %} 
+		{% endif %}
 		<a href="/meal_deal/category/{{ category.slug }}/add_deal/">Add a New Meal Deal</a><br />
 	{% else %} 
 		The specified category does not exist! 
