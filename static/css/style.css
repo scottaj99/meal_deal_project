@@ -33,7 +33,6 @@ div {
 	padding: 14px;
 	text-decoration: none;
 	font-size: 18px;
-	border-radius: 25px;
 }
 
 .categories a:hover {
@@ -42,39 +41,43 @@ div {
 	color: black;
 }
 
+.profiles {
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.profiles a {
+	background-color: white;
+	color: black;
+	display: block;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 25px;
+}
+
+.profiles a:hover {
+	background-color: #e17223;
+	border-radius: 25px;
+	color: black;
+}
+
 .logo {
 	background-color: #e17223;
 	text-align: center;
-	margin-left:25%;
-	margin-right:25%;
 	padding-bottom:5px;
-}	
-
-.column-l {
-	background-color: #ffffff;
-	float: left;
-	width: 30%;
-	text-align:center;
-	margin-left: 10%;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
-
-.column-r {
-	background-color: #ffffff;
-	float: right;
-	width: 30%;
-	text-align:center;
-	margin-right: 10%;
-	margin-top: 5%;
-	margin-bottom: 5%;
 }
 
 .clear-float{
 	clear: left;
 }
 	
-.column-l a {
+.col-lg-6 {
+	background-color: white;
+	border-radius: 0px;
+}
+.col-lg-6 a {
 	background-color: #e5e5e5;
 	display: block;
 	color: black;
@@ -85,24 +88,7 @@ div {
 	border-radius: 25px;
 }
 
-.column-l a:hover {
-	background-color: #e17223;
-	border-radius: 25px;
-	color: black;
-}
-
-.column-r a {
-	background-color: #e5e5e5;
-	display: block;
-	color: black;
-	text-align: center;
-	padding: 14px;
-	text-decoration: none;
-	font-size: 18px;
-	border-radius: 25px;
-}
-
-.column-r a:hover {
+.col-lg-6 a:hover {
 	background-color: #e17223;
 	border-radius: 25px;
 	color: black;
@@ -116,6 +102,7 @@ div {
 
 /* Add a white-grey background color to the top navigation */
 .tab {
+	border-radius: 0px;
     background-color: #f2f2f2;
     overflow: hidden;
 }

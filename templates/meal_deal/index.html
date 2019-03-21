@@ -14,14 +14,15 @@
 		Welcome to the best<br>
 		place to get roasted!
 		</div>
-		
-		<div class="column-l">
-		<h2>Blessed Meal Deals</h2>
+		<br>
+		<div class="row">
+		<div class="col-lg-6">
+		<center><h2>Blessed Meal Deals</h2><center>
 		<hr>
 		{% if blessed_deals %} 
 		<ul> 
 			{% for meal_deal in blessed_deals %}
-				<li><a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a></li> <p>
+				<a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a><br>
 			{% endfor %} 
 		</ul> 
 		{% else %} 
@@ -29,20 +30,20 @@
 		{% endif %} 
 		</div>
 		
-		<div class="column-r">
-		<h2>Roasted Meal Deals</h2>
+		<div class="col-lg-6">
+		<center><h2>Roasted Meal Deals</h2><center>
 		<hr>
 		{% if roasted_deals %} 
 		<ul> 
 			{% for meal_deal in roasted_deals %}
-				<li><a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a></li> <p>
+				<a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a><br>
 			{% endfor %} 
 		</ul> 
 		{% else %} 
 			<strong>There are no meal deals present.</strong> 
 		{% endif %} 
 		</div>
-		
+		</div>
 		<div class="clear-float">
 		</div> 
 		</div>
