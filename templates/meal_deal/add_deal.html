@@ -11,11 +11,12 @@
 
 		<div>
 		{% if category %}
-        		<form id="page_form" method="post" action="/meal_deal/category/{{ category.slug }}/add_deal/">
+		
+        		<form method="post" enctype="multipart/form-data" action="/meal_deal/category/{{ category.slug }}/add_deal/">
 				{% csrf_token %}
 						{% for hidden in form.hidden_fields %} 
-						{{ hidden }} 
-				{% endfor %} 
+							{{ hidden }} 
+						{% endfor %} 
 						{% for field in form.visible_fields %} 
 							{{ field.errors }} 
 						{{ field.help_text }} 

@@ -122,11 +122,19 @@ def add_deal(request, category_name_slug):
     except Category.DoesNotExist:
         category = None
     form = MealDealForm()
+
     if request.method == 'POST':
-        form = MealDealForm(request.POST)
+        form = MealDealForm(request.POST, request.FILES)
         if form.is_valid():
             if category:
                 page = form.save(commit=False)
+
+                ## IVE TRIED TO SAVE THE PICTURE SEPERATE HERE, BUT I CANT FIND AN IDENTIFIER
+                ## TO PUT IN THE BRACKETS IN THE LINE BELOW
+                
+                #pic = Meal_Deal.objects.get(name=name)
+               # pic.model_pic = form.cleaned_data['image']
+               # pic.save()
                 page.category=category
                 page.views = 0
                 page.save()

@@ -16,12 +16,12 @@ class Category(models.Model):
         return self.name
     
 class Meal_Deal(models.Model):
+
+    pic = models.ImageField(upload_to = 'uploads', null=True)
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=1000)
-    #picture = models.ImageField(upload_to='uploads', blank=True)
     slug = models.SlugField(unique=True)
-    #url = models.URLField()
     views = models.IntegerField(default=0)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
