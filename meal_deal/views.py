@@ -24,7 +24,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 
 def index(request):
-    category_list = Category.objects.order_by('-likes')
+    category_list = Category.objects
     blessed_list = Meal_Deal.objects.order_by('-likes')[:5]
     roasted_list = Meal_Deal.objects.order_by('-dislikes')[:5]
     context_dict = {'categories': category_list, 'blessed_deals':blessed_list, 'roasted_deals': roasted_list}

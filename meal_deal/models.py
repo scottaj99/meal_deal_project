@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
-    likes = models.IntegerField(default=0)
-    views = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

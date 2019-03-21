@@ -1,3 +1,4 @@
+
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                       'meal_deal_project.settings')
@@ -24,10 +25,21 @@ def populate():
         {"title": "Joseph's Meal Deal","description": "Fanta orange, flame grilled steak mccoys and a prawn mayo sandwich", "pic":NEW_DIR+"Joseph.jpg", "likes":0, "dislikes": 0},
         {"title": "Andrew's Meal Deal", "description": "Prawn, mango and chilli wrap, apple+grape bag and a diet coke", "pic":NEW_DIR+"Andrew.jpg", "likes":0, "dislikes": 0}
         ]
+    vegan_pages = []
+    unhealthy_pages = []
+    healthy_pages = []
+    money_saving_pages = []
+    no_sandwich_pages = []
 
-    cats = {"Vegetarian": {"meals": vegetarian_pages, "likes": 0},
-            "Meaty": {"meals": meaty_pages, "likes": 0},
-            "Others": {"meals": other_pages, "likes": 0} }
+    cats = {"Vegetarian": {"meals": vegetarian_pages},
+            "Meaty": {"meals": meaty_pages},
+            "Others": {"meals": other_pages},
+            "Vegan":{"meals": vegan_pages},
+            "Healthy":{"meals": healthy_pages},
+            "Unhealthy":{"meals": unhealthy_pages},
+            "Money Saving":{"meals": money_saving_pages},
+            "No Sandwich":{"meals": no_sandwich_pages}}
+    
 
     for cat, cat_data in cats.items():
         c = add_cat(cat)
