@@ -16,20 +16,6 @@
 		</div>
 		
 		<div class="column-l">
-		<h2>Most Liked Categories</h2>
-		<hr>
-		{% if categories %} 
-		<ul> 
-			{% for category in categories %}
-				<li><a href="/meal_deal/category/{{ category.slug }}">{{ category.name }}</a></li> <p>
-			{% endfor %} 
-		</ul> 
-		{% else %} 
-			<strong>There are no categories present.</strong> 
-		{% endif %} 
-		</div>
-		
-		<div class="column-r">
 		<h2>Blessed Meal Deals</h2>
 		<hr>
 		{% if blessed_deals %} 
@@ -43,7 +29,7 @@
 		{% endif %} 
 		</div>
 		
-		<div >
+		<div class="column-r">
 		<h2>Roasted Meal Deals</h2>
 		<hr>
 		{% if roasted_deals %} 
@@ -58,11 +44,20 @@
 		</div>
 		
 		<div class="clear-float">
-			<img src="{% static "images/meal_deal.jpg" %}" 
-			alt="Picture of a meal deal" /> <!-- New line -->
 		</div> 
 		</div>
-		
+		<hr>
+		<div class="categories">
+		<h2 style="text-align: center">Categories</h2>
+		<hr>
+		{% if categories %} 
+			{% for category in categories %}
+				<a href="/meal_deal/category/{{ category.slug }}">{{ category.name }}</a>
+			{% endfor %} 
+		{% else %} 
+			<strong>There are no categories present.</strong> 
+		{% endif %} 
+		</div>
 		
 		<!-- JQuery stuff below -->
 		

@@ -13,10 +13,8 @@
 		
 		
 		<div>
-		<strong id="like_count">{{ meal_deal.likes }} </strong> people like this category
-		<br><strong id="dislike_count">{{ meal_deal.dislikes }} </strong> people dislike this category</br>
-		<br>{{ visits }} viewed this page</br>
-		<br>last visited: {{ last_visit }}</br>
+		<strong id="like_count">{{ meal_deal.likes }} </strong> people like this meal deal.
+		<br><strong id="dislike_count">{{ meal_deal.dislikes }} </strong> people dislike this meal deal.</br>
 		
 		{% if user.is_authenticated %} 
 		
@@ -48,12 +46,13 @@
 	
 	<br><br>
 	<hr>
-	
+	{% if user.is_authenticated %} 
 	<form method="post">
 		{% csrf_token %}
 		{{comment_form.as_p}}
 		<input type="submit" value="submit" class="btn btn-outline-success" >
 	</form>
+	{% endif %}
 	
 	<div class="main-comment-section">
 	{{comments.count}} Comment{{comments|pluralize}}

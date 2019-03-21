@@ -20,8 +20,30 @@ div {
 	height: 600px;
 }
 
+.categories {
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.categories a {
+	background-color: white;
+	color: black;
+	display: inline-block;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 25px;
+}
+
+.categories a:hover {
+	background-color: #e17223;
+	border-radius: 25px;
+	color: black;
+}
+
 .logo {
-	background-color: #85FFE2;
+	background-color: #e17223;
 	text-align: center;
 	margin-left:25%;
 	margin-right:25%;
@@ -64,7 +86,7 @@ div {
 }
 
 .column-l a:hover {
-	background-color: #85FFE2;
+	background-color: #e17223;
 	border-radius: 25px;
 	color: black;
 }
@@ -81,7 +103,7 @@ div {
 }
 
 .column-r a:hover {
-	background-color: #85FFE2;
+	background-color: #e17223;
 	border-radius: 25px;
 	color: black;
 }
@@ -111,11 +133,11 @@ div {
 /* Change the color of links on hover */
 .tab a:hover {
     background-color: #ddd;
-    color: #85FFE2;
+    color: #e17223;
 }
 
 /* Add a color to the active/current link */
 .tab a.active {
-    background-color: #85FFE2;
+    background-color: #e17223;
     color: black;
 }

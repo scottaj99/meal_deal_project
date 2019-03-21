@@ -7,22 +7,21 @@
 
 {% block body_block %}
 
-		<h1>Add a meal deal</h1>
-
+		<h1>Upload a meal deal</h1>
+		<p>Provide an image, title and description of your meal deal! Dont forget to pick a catagory too!</p>
 		<div>
-
-		
         		<form method="post" enctype="multipart/form-data" action="/meal_deal/add_deal/">
 				{% csrf_token %}
 				{% for hidden in form.hidden_fields %} 
 					{{ hidden }} 
 				{% endfor %} 
-				{% for field in form.visible_fields %} 
+				{% for field in form.visible_fields %} <br>
 					{{ field.errors }} 
 					{{ field.help_text }} 
 					{{ field }} 
-				{% endfor %} 
+				{% endfor %} <br><br>
 				<input type="submit" name="submit" value="Add Meal Deal" />
+				<br>
 			</form>
 
 		</div>

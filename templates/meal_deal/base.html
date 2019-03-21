@@ -30,7 +30,7 @@
 				<a href="{% url 'profile' user.username %}">My Profile</a>
 				<a href="{% url 'list_profiles' %}">Other Users</a>
 
-				Signed in as: {{ user.username}}
+				<a style="float: right">Signed in as: {{ user.username}}</a>
 			{% else %}
 				<a href="{% url 'auth_login' %}">Log in</a>
 				<a href="{% url 'registration_register' %}">Register</a>
@@ -44,12 +44,9 @@
 		<hr />
 		
 		<div>
-			<ul>
-				<li><a href="{% url 'about' %}">About</a></li>
-				<li><a href="{% url 'index' %}">Index</a></li>
-				<li><a href="{% url 'registration_register' %}">Register</a></li>
-			</ul>
+		<center>All Rights Reserved: Lab Group 6 Team C</center>
 		</div>
+		
 
 	</body>
 </html>
