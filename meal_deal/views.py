@@ -97,7 +97,13 @@ def profile(request, username):
     return render(request, 'meal_deal/profile.html',
         {'userprofile': userprofile, 'selecteduser': user, 'form': form})
 
+@login_required
+def list_profiles(request):
+    userprofile_list = UserProfile.objects.all()
 
+    return render(request, 'meal_deal/list_profiles.html',
+                  {'userprofile_list' : userprofile_list})
+        
 
 def add_category(request):
     form = CategoryForm()

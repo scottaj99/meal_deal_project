@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'meal_deal',
-    'registration' # add in the registration package
+    'registration',
+    'bootstrap_toolkit', 
 ]
 
 MIDDLEWARE = [

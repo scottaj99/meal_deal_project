@@ -19,6 +19,8 @@ urlpatterns = [
         views.register_profile, name='register_profile'),
     url(r'^profile/(?P<username>[\w\-]+)/$',
         views.profile, name='profile'),
-    url(r'^like/$', views.like_category, name='like_category')
+    url(r'^like/$', views.like_category, name='like_category'),
+    url(r'^profiles/$', views.list_profiles, name='list_profiles'),
+
 ] 
 
