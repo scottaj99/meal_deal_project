@@ -25,6 +25,7 @@
 			<a href="{% url 'about' %}">About</a>
 			<a href="{% url 'add_category' %}">Add New Category</a>
 			{% if user.is_authenticated %}
+				<a href="{% url 'add_deal' %}">Upload a New Meal Deal</a>
 				<a href="{% url 'auth_logout' %}?next=/meal_deal/">Logout</a>
 				<a href="{% url 'profile' user.username %}">My Profile</a>
 				<a href="{% url 'list_profiles' %}">Other Users</a>
