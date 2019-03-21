@@ -24,9 +24,14 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 
 def index(request):
-    category_list = Category.objects.order_by('-likes')[:5]
-    meal_deal_list = Meal_Deal.objects.order_by('-views')[:5]
-    context_dict = {'categories': category_list, 'meal_deals':meal_deal_list}
+    category_list = Category.objects.order_by('-likes')
+    blessed_list = Meal_Deal.objects.order_by('-likes')[:5]
+    roasted_list = Meal_Deal.objects.order_by('-dislikes')[:5]
+    context_dict = {'categories': category_list, 'blessed_deals':blessed_list, 'roasted_deals': roasted_list}
+
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
+    
     return render(request, 'meal_deal/index.html', context=context_dict)
 
 def about(request):
@@ -64,9 +69,6 @@ def show_meal_deal(request, meal_deal_slug):
         context_dict['comment_form'] = comment_form
     except Category.DoesNotExist:
         context_dict['meal_deal'] = None
-
-    visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
         
     response = render(request, 'meal_deal/deals.html', context_dict)
     return response
@@ -196,16 +198,9 @@ def get_server_side_cookie(request, cookie, default_val=None):
     return val
 
 def visitor_cookie_handler(request):
-    visits = int(request.COOKIES.get('visits', '1'))
-    last_visit_cookie = get_server_side_cookie(request, 'last_visit', str(datetime.now()))
-    last_visit_time = datetime.strptime(last_visit_cookie[:-7], '%Y-%m-%d %H:%M:%S')
-
+    visits = int(get_server_side_cookie(request, 'visits', '1'))
     
-    if (datetime.now() - last_visit_time).days > 0:
-        visits = visits + 1
-        request.session['last_visit'] = str(datetime.now())
-    else:
-        request.session['last_visit'] = last_visit_cookie
+    visits = visits + 1
 
     request.session['visits'] = visits
 

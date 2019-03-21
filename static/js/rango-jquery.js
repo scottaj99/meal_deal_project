@@ -13,7 +13,7 @@ $(document).ready( function() {
 	
 	$("#welcome").dialog({
 		width: 400,
-		height: 350,
+		height: 400,
 		autoOpen: true,
 		open: function(event, ui) { 
 			jQuery('.ui-dialog-titlebar-close').hide();

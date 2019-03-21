@@ -32,9 +32,23 @@
 		<div class="column-r">
 		<h2>Blessed Meal Deals</h2>
 		<hr>
-		{% if meal_deals %} 
+		{% if blessed_deals %} 
 		<ul> 
-			{% for meal_deal in meal_deals %}
+			{% for meal_deal in blessed_deals %}
+				<li><a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a></li> <p>
+			{% endfor %} 
+		</ul> 
+		{% else %} 
+			<strong>There are no meal deals present.</strong> 
+		{% endif %} 
+		</div>
+		
+		<div >
+		<h2>Roasted Meal Deals</h2>
+		<hr>
+		{% if roasted_deals %} 
+		<ul> 
+			{% for meal_deal in roasted_deals %}
 				<li><a href="/meal_deal/deals/{{ meal_deal.slug }}">{{ meal_deal.title }}</a></li> <p>
 			{% endfor %} 
 		</ul> 
@@ -49,11 +63,13 @@
 		</div> 
 		</div>
 		
+		
 		<!-- JQuery stuff below -->
 		
 		<div id="welcome">
 			<b><center><font size="7">Welcome to RateMyMealDeal!!</font></b>
 			<p> The best place to discuss your favourite main, drink and snack combos with fellow meal deal enthusiasts! </p>
+			<br> {{ visits }} people have visited this page. </br>
 			<p><button class="continueBtn">Continue</button> </p></center>
 		</div>
 		
