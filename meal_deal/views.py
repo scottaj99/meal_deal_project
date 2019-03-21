@@ -116,18 +116,18 @@ def add_category(request):
             print (form.errors)
     return render(request, 'meal_deal/add_category.html', {'form': form})
 
-def add_deal(request, category_name_slug):
-    try:
-        category = Category.objects.get(slug=category_name_slug)
-    except Category.DoesNotExist:
-        category = None
+def add_deal(request):
+   # try:
+    #    category = Category.objects.get(slug=category_name_slug)
+    #except Category.DoesNotExist:
+     #   category = None
     form = MealDealForm()
 
     if request.method == 'POST':
         form = MealDealForm(request.POST, request.FILES)
         if form.is_valid():
-            if category:
-                page = form.save(commit=False)
+            #if category:
+            page = form.save(commit=False)
 
                 ## IVE TRIED TO SAVE THE PICTURE SEPERATE HERE, BUT I CANT FIND AN IDENTIFIER
                 ## TO PUT IN THE BRACKETS IN THE LINE BELOW
@@ -135,13 +135,13 @@ def add_deal(request, category_name_slug):
                 #pic = Meal_Deal.objects.get(name=name)
                # pic.model_pic = form.cleaned_data['image']
                # pic.save()
-                page.category=category
-                page.views = 0
-                page.save()
-                return show_category(request, category_name_slug)
+               # page.category=category
+            page.views = 0
+            page.save()
+            return index(request)
         else:
             print(form.errors)
-    context_dict = {'form':form, 'category': category}
+    context_dict = {'form':form}
     return render(request, 'meal_deal/add_deal.html', context_dict)
 
 @login_required

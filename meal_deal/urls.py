@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^about/', views.about, name='about'),
     url(r'^add_category/$', views.add_category, name='add_category'),
-    url(r'^category/(?P<category_name_slug>[\w\-]+)/add_deal/$',
+    url(r'^add_deal/$',
     views.add_deal,
     name='add_deal'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/$',
