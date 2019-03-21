@@ -12,7 +12,7 @@ $(document).ready( function() {
 	//Welcome dialog stuff
 	
 	$("#welcome").dialog({
-		width: 400,
+		width: 450,
 		height: 400,
 		autoOpen: true,
 		open: function(event, ui) { 
