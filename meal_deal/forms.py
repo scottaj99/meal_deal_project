@@ -14,7 +14,7 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 class MealDealForm(forms.ModelForm):
-    image = forms.ImageField()
+    #image = forms.ImageField()
     title = forms.CharField(max_length=128,
                             help_text="Please enter the title of the page.")
     description = forms.CharField(max_length=1000,
@@ -23,7 +23,7 @@ class MealDealForm(forms.ModelForm):
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
         model = Meal_Deal
-        fields = ('image', 'title', 'description')
+        fields = ('pic', 'title', 'description')
         exclude = ('category',)
 
 # User Authentication 

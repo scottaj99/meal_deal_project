@@ -9,7 +9,7 @@
 	{% if meal_deal %} 
 		<h1>{{ meal_deal.title }}</h1>
 		<h2>{{meal_deal.description}}</h2>
-		<p><img src="{{MEDIA_URL}}{{meal_deal.picture}}" alt="Meal Deal"></p>
+		<p><img src="{{MEDIA_URL}}{{meal_deal.pic}}" alt="Meal Deal"></p>
 	{% else %} 
 		The specified meal deal does not exist! 
 	{% endif %}
