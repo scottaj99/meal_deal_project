@@ -15,6 +15,9 @@
 		<div>
 		<strong id="like_count">{{ meal_deal.likes }} </strong> people like this category
 		<br><strong id="dislike_count">{{ meal_deal.dislikes }} </strong> people dislike this category</br>
+		<br>{{ visits }} viewed this page</br>
+		<br>last visited: {{ last_visit }}</br>
+		
 		{% if user.is_authenticated %} 
 		
 		<div id="dialog">
