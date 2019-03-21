@@ -22,10 +22,10 @@
 			 <center>&nbsp; &nbsp; &nbsp; &nbsp; <b><u>Rate this Meal Deal</b></u> &nbsp; &nbsp; &nbsp; &nbsp; <button class="closeBtn">X</button></center>
 
 			
-				<form method="post">
+				<form method="post" onSubmit="window.location.reload();">
 					{% csrf_token %}
 					{{comment_form.as_p}}
-					<input type="submit" value="Submit" class="btn btn-outline-success" style="width:70px;padding-top:10px;padding-bottom:10px;">
+					<input type="submit" value="Submit" class="btn btn-mini btn-primary" style="width:70px;padding-top:10px;padding-bottom:10px; background-color: #3fe812 ; font-weight: bold;">
 				</form>
 			
 		</div>
@@ -53,7 +53,7 @@
 	{% for comment in comments %}
 	<blockquote class="blockquote">
 		<p class="mb-0">{{comment.content}}</p>
-		<footer class="blockquote-footer">by <cite title="Source Title">{{comment.user|capfirst}}</cite></footer>
+		<p><footer class="blockquote-footer">by <cite title="Source Title">{{comment.user|capfirst}}</cite></footer><p>
 	</blockquote>
 	{% endfor %}
 	</div>

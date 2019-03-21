@@ -34,6 +34,10 @@ def index(request):
     
     return render(request, 'meal_deal/index.html', context=context_dict)
 
+def division(no1, no2):
+    divided = int(no1) - int(no2)
+    return divided
+
 def about(request):
     context_dict = {'boldmessage': "This is the about page!"}
     return render(request, 'meal_deal/about.html', context=context_dict)

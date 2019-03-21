@@ -19,11 +19,11 @@ $(document).ready( function() {
 			jQuery('.ui-dialog-titlebar-close').hide();
 		},
 		show: {
-			effect: "blind",
+			effect: "explode",
 			duration: 1000
 		},
 		hide: {
-			effect: "blind",
+			effect: "explode",
 			duration: 1000
 		}
 	});
@@ -36,7 +36,7 @@ $(document).ready( function() {
 	//Post review dialog stuff
 	
 	$("#dialog").dialog({
-		width: 350,
+		width: 360,
 		height: 350,
 		autoOpen: false,
 		open: function(event, ui) { 
