@@ -19,21 +19,23 @@
 		{% if user.is_authenticated %} 
 		
 		<div id="dialog">
-			<b><u><center>Rate this Meal Deal</b></u></center>
-		
-			<p>&nbsp; Rating
-			<br>&nbsp; <input id="myRating" size="1" ></p>
-		
-			<p>&nbsp; Comment
-			<br>&nbsp; <input id="myComment" type="text" size="40"> </p>
-			<br>
-			<p>&nbsp; <button id ="likes" data-deaid="{{meal_deal.id}}" class="btn btn-mini btn-primary" type="button"> Like </button>
-				&nbsp; <button id ="dislikes" data-deaid="{{meal_deal.id}}" class="btn btn-mini btn-primary" type="button"> Disike </button>
-				&nbsp; <button class="closeBtn">Cancel</button></p>
+			 <center>&nbsp; &nbsp; &nbsp; &nbsp; <b><u>Rate this Meal Deal</b></u> &nbsp; &nbsp; &nbsp; &nbsp; <button class="closeBtn">X</button></center>
+
+			
+				<form method="post">
+					{% csrf_token %}
+					{{comment_form.as_p}}
+					<input type="submit" value="Submit" class="btn btn-outline-success" style="width:70px;padding-top:10px;padding-bottom:10px;">
+				</form>
+			
 		</div>
 		
-		<p><button id="opener">Rate this Meal Deal</button>
+		<p><button id="opener">Leave a comment</button></p>
 		
+		<p>
+		<button id ="likes" data-deaid="{{meal_deal.id}}" class="btn btn-mini btn-primary" type="button"> Like </button>
+		<button id ="dislikes" data-deaid="{{meal_deal.id}}" class="btn btn-mini btn-primary" type="button"> Disike </button>
+		</p>
 		{% endif %}
 		</div>
 		
@@ -45,15 +47,7 @@
 	{% endif %}
 	
 	<br><br>
-	<hr>
-	{% if user.is_authenticated %} 
-	<form method="post">
-		{% csrf_token %}
-		{{comment_form.as_p}}
-		<input type="submit" value="submit" class="btn btn-outline-success" >
-	</form>
-	{% endif %}
-	
+
 	<div class="main-comment-section">
 	{{comments.count}} Comment{{comments|pluralize}}
 	{% for comment in comments %}
