@@ -25,9 +25,9 @@ def populate():
         {"title": "Andrew's Meal Deal", "description": "Prawn, mango and chilli wrap, apple+grape bag and a diet coke", "picture":NEW_DIR+"Andrew.jpg"}
         ]
 
-    cats = {"Vegetarian": {"meals": vegetarian_pages},
-            "Meaty": {"meals": meaty_pages},
-            "Others": {"meals": other_pages} }
+    cats = {"Vegetarian": {"meals": vegetarian_pages, "likes": 0},
+            "Meaty": {"meals": meaty_pages, "likes": 1},
+            "Others": {"meals": other_pages, "likes": 2} }
 
     for cat, cat_data in cats.items():
         c = add_cat(cat)

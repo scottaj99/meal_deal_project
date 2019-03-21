@@ -70,4 +70,14 @@ $(document).ready( function() {
 	}).css({width: '70px', 'padding-top': '10px', 'padding-bottom': '10px' });
 	
 	
+	
+	$('#likes').click(function() {
+		var catid;
+		catid = $(this).attr("data-catid");
+		$.get('/meal_deal/like/', {category_id: catid}, function(data){ 
+			$('#like_count').html(data);
+				$('#likes').hide();
+		});
+	});
+	
 });

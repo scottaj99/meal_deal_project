@@ -7,6 +7,8 @@ from meal_deal.forms import CategoryForm
 from meal_deal.forms import MealDealForm
 from meal_deal.forms import UserForm, UserProfileForm
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
+
 
 
 #Imports for logging in/out
@@ -127,3 +129,18 @@ def add_deal(request, category_name_slug):
             print(form.errors)
     context_dict = {'form':form, 'category': category}
     return render(request, 'meal_deal/add_deal.html', context_dict)
+
+@login_required
+def like_category(request):
+    cat_id = None
+    if request.method == 'GET':
+        cat_id = request.GET['category_id']
+    likes=0
+    if cat_id:
+        cat = Category.objects.get(id=int(cat_id))
+        if cat:
+            likes = cat.likes + 1
+            cat.likes = likes
+            cat.save()
+    return HttpResponse(likes)
+

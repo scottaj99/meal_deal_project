@@ -8,6 +8,14 @@
 {% block body_block %} 
 	{% if category %} 
 		<h1>{{ category.name }}</h1> 
+		
+		<div>
+		<strong id="like_count">{{ category.likes }} </strong> people like this category
+		{% if user.is_authenticated %} 
+			<button id ="likes" data-catid="{{category.id}}" class="btn btn-mini btn-primary" type="button"> Like </button>
+		{% endif %}
+		</div>
+		
 		{% if meal_deals %} 
 			<ul> 
 			{% for meal_deal in meal_deals %} 
