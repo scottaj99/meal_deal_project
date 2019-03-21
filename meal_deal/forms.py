@@ -1,5 +1,5 @@
 from django import forms
-from meal_deal.models import Meal_Deal, Category, UserProfile
+from meal_deal.models import Meal_Deal, Category, UserProfile, Comment
 from django.contrib.auth.models import User
 
 class CategoryForm(forms.ModelForm):
@@ -41,6 +41,11 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user', )
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('content',)
 
 
 

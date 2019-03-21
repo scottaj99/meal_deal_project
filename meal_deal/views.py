@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from meal_deal.models import Category
 from meal_deal.models import Meal_Deal
 from meal_deal.models import UserProfile
+from meal_deal.models import Comment
 from meal_deal.forms import CategoryForm
 from meal_deal.forms import MealDealForm
 from meal_deal.forms import UserForm, UserProfileForm
+from meal_deal.forms import CommentForm
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
@@ -47,7 +49,19 @@ def show_meal_deal(request, meal_deal_slug):
     context_dict = {}
     try:
         meal_deal = Meal_Deal.objects.get(slug=meal_deal_slug)
+        comments = Comment.objects.filter(post=meal_deal).order_by('-id')
+        if request.method == 'POST':
+            comment_form = CommentForm(request.POST or None)
+            if comment_form.is_valid():
+                content=request.POST.get('content')
+                comment = Comment.objects.create(post=meal_deal, user=request.user, content=content)
+                comment.save()
+                form=MealDealForm()
+        else:
+            comment_form=CommentForm()
         context_dict['meal_deal'] = meal_deal
+        context_dict['comments'] = comments
+        context_dict['comment_form'] = comment_form
     except Category.DoesNotExist:
         context_dict['meal_deal'] = None
 

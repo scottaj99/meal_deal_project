@@ -45,3 +45,12 @@ class UserProfile(models.Model):
     #Override the __unicode__() method to return out something meaningful
     def __str__(self):
         return self.user.username
+
+class Comment(models.Model):
+    post = models.ForeignKey(Meal_Deal)
+    user = models.ForeignKey(User)
+    content = models.TextField(max_length=200)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{}-{}'.format(self.post.title, str(self.user.username))

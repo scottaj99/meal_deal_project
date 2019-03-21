@@ -45,5 +45,24 @@
 	{% else %} 
 		The specified meal deal does not exist! 
 	{% endif %}
+	
+	<br><br>
+	<hr>
+	
+	<form method="post">
+		{% csrf_token %}
+		{{comment_form.as_p}}
+		<input type="submit" value="submit" class="btn btn-outline-success" >
+	</form>
+	
+	<div class="main-comment-section">
+	{{comments.count}} Comment{{comments|pluralize}}
+	{% for comment in comments %}
+	<blockquote class="blockquote">
+		<p class="mb-0">{{comment.content}}</p>
+		<footer class="blockquote-footer">by <cite title="Source Title">{{comment.user|capfirst}}</cite></footer>
+	</blockquote>
+	{% endfor %}
+	</div>
 		
 {% endblock %}
