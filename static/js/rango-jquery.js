@@ -58,26 +58,35 @@ $(document).ready( function() {
 		$("#dialog").dialog("open");
 	}).css({ width: '300px', 'padding-top': '10px', 'padding-bottom': '10px' });
 
+	/*
 	$('.formSaver').on('click', function() {
 		$('.myTarget').text($('.myComment').val());
 		$("#dialog").dialog('close');
 	}).css({ width: '230px', 'padding-top': '10px', 'padding-bottom': '10px' });
+	*/
 	
 	$( "#myRating" ).spinner({min:0, max:5});
 	
 	$('.closeBtn').on('click', function() {
 		$("#dialog").dialog('close');
 	}).css({width: '70px', 'padding-top': '10px', 'padding-bottom': '10px' });
-	
-	
-	
-	$('#likes').click(function() {
-		var catid;
-		catid = $(this).attr("data-catid");
-		$.get('/meal_deal/like/', {category_id: catid}, function(data){ 
+
+	$('#likes').on('click', function() {
+		var deaid;
+		deaid = $(this).attr("data-deaid");
+		$.get('/meal_deal/like/', {deals_id: deaid}, function(data){ 
 			$('#like_count').html(data);
-				$('#likes').hide();
-		});
-	});
+				$("#dialog").dialog('close');
+		})
+	}).css({ width: '115px', 'padding-top': '10px', 'padding-bottom': '10px' });
+	
+	$('#dislikes').on('click', function() {
+		var deaid;
+		deaid = $(this).attr("data-deaid");
+		$.get('/meal_deal/dislike/', {deals_id: deaid}, function(data){ 
+			$('#dislike_count').html(data);
+				$("#dialog").dialog('close');
+		})
+	}).css({ width: '115px', 'padding-top': '10px', 'padding-bottom': '10px' });
 	
 });

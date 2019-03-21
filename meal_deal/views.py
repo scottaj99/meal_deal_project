@@ -145,16 +145,30 @@ def add_deal(request):
     return render(request, 'meal_deal/add_deal.html', context_dict)
 
 @login_required
-def like_category(request):
-    cat_id = None
+def like_deal(request):
+    dea_id = None
     if request.method == 'GET':
-        cat_id = request.GET['category_id']
+        dea_id = request.GET['deals_id']
     likes=0
-    if cat_id:
-        cat = Category.objects.get(id=int(cat_id))
-        if cat:
-            likes = cat.likes + 1
-            cat.likes = likes
-            cat.save()
+    if dea_id:
+        dea = Meal_Deal.objects.get(id=int(dea_id))
+        if dea:
+            likes = dea.likes + 1
+            dea.likes = likes
+            dea.save()
     return HttpResponse(likes)
+
+@login_required
+def dislike_deal(request):
+    dea_id = None
+    if request.method == 'GET':
+        dea_id = request.GET['deals_id']
+    dislikes=0
+    if dea_id:
+        dea = Meal_Deal.objects.get(id=int(dea_id))
+        if dea:
+            dislikes = dea.dislikes + 1
+            dea.dislikes = dislikes
+            dea.save()
+    return HttpResponse(dislikes)
 

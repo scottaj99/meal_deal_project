@@ -23,6 +23,9 @@ class Meal_Deal(models.Model):
     description = models.CharField(max_length=1000)
     slug = models.SlugField(unique=True)
     views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
+    
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Meal_Deal, self).save(*args, **kwargs)

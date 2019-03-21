@@ -10,9 +10,13 @@
 		<h1>{{ meal_deal.title }}</h1>
 		<h2>{{meal_deal.description}}</h2>
 		<p><img src="{{MEDIA_URL}}{{meal_deal.pic}}" alt="Meal Deal"></p>
-	{% else %} 
-		The specified meal deal does not exist! 
-	{% endif %}
+		
+		
+		<div>
+		<strong id="like_count">{{ meal_deal.likes }} </strong> people like this category
+		<br><strong id="dislike_count">{{ meal_deal.dislikes }} </strong> people dislike this category</br>
+		{% if user.is_authenticated %} 
+		
 		<div id="dialog">
 			<b><u><center>Rate this Meal Deal</b></u></center>
 		
@@ -22,8 +26,21 @@
 			<p>&nbsp; Comment
 			<br>&nbsp; <input id="myComment" type="text" size="40"> </p>
 			<br>
-			<p>&nbsp; <button class="formSaver">Post review</button> &nbsp; <button class="closeBtn">Cancel</button></p>
+			<p>&nbsp; <button id ="likes" data-deaid="{{meal_deal.id}}" class="btn btn-mini btn-primary" type="button"> Like </button>
+				&nbsp; <button id ="dislikes" data-deaid="{{meal_deal.id}}" class="btn btn-mini btn-primary" type="button"> Disike </button>
+				&nbsp; <button class="closeBtn">Cancel</button></p>
 		</div>
-
+		
 		<p><button id="opener">Rate this Meal Deal</button>
+		
+		{% endif %}
+		</div>
+		
+		
+		
+		
+	{% else %} 
+		The specified meal deal does not exist! 
+	{% endif %}
+		
 {% endblock %}
