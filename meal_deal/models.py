@@ -19,10 +19,12 @@ class Meal_Deal(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
     description = models.CharField(max_length=1000)
+    price = models.FloatField(null=True, blank=True, default=None)
     slug = models.SlugField(unique=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
+    rating = models.IntegerField(default=0)
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

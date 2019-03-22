@@ -7,14 +7,21 @@
 
 {% block body_block %}  
 	{% if meal_deal %} 
+		<div class="row">
 		<h1>{{ meal_deal.title }}</h1>
-		<h2>{{meal_deal.description}}</h2>
+		<div class="col-lg-6" style="background-color: #f2f2f2">
 		<p><img src="{{MEDIA_URL}}{{meal_deal.pic}}" alt="Meal Deal"></p>
-		
-		
-		<div>
+		</div>
+		<div class="col-lg-6" style="background-color: #f2f2f2; font-size: 20px">
+		Description:<br> 
+		{{meal_deal.description}}<br>
+		Price: £{{meal_deal.price}}<br>
 		<strong id="like_count">{{ meal_deal.likes }} </strong> people like this meal deal.
-		<br><strong id="dislike_count">{{ meal_deal.dislikes }} </strong> people dislike this meal deal.</br>
+		<br><strong id="dislike_count">{{ meal_deal.dislikes }} </strong> people dislike this meal deal.
+		</div>
+		</div>
+		<div>
+		</br>
 		
 		{% if user.is_authenticated %} 
 		

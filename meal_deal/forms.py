@@ -18,10 +18,11 @@ class MealDealForm(forms.ModelForm):
     description = forms.CharField(max_length=1000,
                             help_text="Description: ")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    price = forms.FloatField(help_text="price (£)")
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     class Meta:
         model = Meal_Deal
-        fields = ('pic', 'title', 'description', 'category')
+        fields = ('pic', 'title', 'description', 'category', 'price')
         #exclude = ('category',)
 
 # User Authentication 

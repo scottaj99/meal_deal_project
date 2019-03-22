@@ -25,8 +25,8 @@ from django.contrib.auth.models import User
 
 def index(request):
     category_list = Category.objects.all()
-    blessed_list = Meal_Deal.objects.order_by('-likes')[:5]
-    roasted_list = Meal_Deal.objects.order_by('-dislikes')[:5]
+    blessed_list = Meal_Deal.objects.order_by('-rating')[:5]
+    roasted_list = Meal_Deal.objects.order_by('rating')[:5]
     context_dict = {'categories': category_list, 'blessed_deals':blessed_list, 'roasted_deals': roasted_list}
 
     visitor_cookie_handler(request)
@@ -173,11 +173,14 @@ def like_deal(request):
     if request.method == 'GET':
         dea_id = request.GET['deals_id']
     likes=0
+    rating = 0
     if dea_id:
         dea = Meal_Deal.objects.get(id=int(dea_id))
         if dea:
             likes = dea.likes + 1
+            rating = dea.rating + 1
             dea.likes = likes
+            dea.rating = rating
             dea.save()
     return HttpResponse(likes)
 
@@ -187,11 +190,14 @@ def dislike_deal(request):
     if request.method == 'GET':
         dea_id = request.GET['deals_id']
     dislikes=0
+    rating = 0 
     if dea_id:
         dea = Meal_Deal.objects.get(id=int(dea_id))
         if dea:
             dislikes = dea.dislikes + 1
+            rating = dea.rating - 1
             dea.dislikes = dislikes
+            dea.rating = rating
             dea.save()
     return HttpResponse(dislikes)
 
