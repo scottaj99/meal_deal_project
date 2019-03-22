@@ -3,7 +3,7 @@ from meal_deal.models import Category, Meal_Deal, UserProfile, Comment
 from django.core.urlresolvers import reverse
 from django.conf import settings
 import os
-import populate_meal_deal
+import population_script
 
 # Create your tests here.
 
@@ -36,9 +36,9 @@ class mealDealTesting(TestCase):
     # Test population scrit
     
     def test_population_script_changes(self):
-         print("---------------------Testing population script-------------------------------")
+        print("---------------------Testing population script-------------------------------")
         #Populate database
-        populate_meal_deal.populate()
+        population_script.populate()
 
         # Check if the one meal deal has correct number of likes and dislikes
         meal = Meal_Deal.objects.get(title="Scott's Meal Deal")
@@ -48,7 +48,7 @@ class mealDealTesting(TestCase):
          # Check if the one meal deal has correct number of likes and dislikes
         meal = Meal_Deal.objects.get(title="Luke's Meal Deal")
         self.assertEquals(meal.likes, 2)
-        self.assertEquals(meal.dislikes, 8261)
+        self.assertEquals(meal.dislikes, 261)
 
         # Check if the one meal deal has correct number of likes and dislikes
         meal = Meal_Deal.objects.get(title="Andrew's Meal Deal")
